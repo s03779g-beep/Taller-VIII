@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Académico | Premium</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Boxicons (Iconos premium) -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- APP CONTENEDOR PRINCIPAL -->
+  <div id="app">
+
+    <!-- BARRA SUPERIOR (NAVBAR) -->
+    <nav class="top-nav">
+      <div class="logo">
+        <i class='bx bx-book-bookmark' style="color: var(--accent-cyan); font-size: 1.5rem;"></i>
+        <span>Ingeniería de Sistemas</span>
+      </div>
+
+      <div class="profile-info">
+        <span class="user-name">Bautista Huaman Juan Arturo</span>
+        <!-- Imagen de placeholder, luego pones tu foto real -->
+        <div class="profile-img">
+          <i class='bx bx-user'></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MENÚ LATERAL (SIDEBAR) -->
+    <aside class="sidebar">
+      <h3 class="sidebar-title">Menú</h3>
+
+      <div class="menu-item active" onclick="showSection('portafolio', this)">
+        <i class='bx bx-grid-alt'></i>
+        <span>Portafolio</span>
+      </div>
+
+      <div class="menu-item" onclick="showSection('git', this)">
+        <i class='bx bx-git-branch'></i>
+        <span>Git</span>
+      </div>
+
+      <div class="menu-item" onclick="showSection('github', this)">
+        <i class='bx bxl-github'></i>
+        <span>GitHub</span>
+      </div>
+
+      <div class="menu-item" onclick="showSection('projects', this)">
+        <i class='bx bx-folder'></i>
+        <span>Proyectos</span>
+      </div>
+
+      <div class="menu-item" onclick="showSection('about', this)">
+        <i class='bx bx-user-circle'></i>
+        <span>Acerca de mí</span>
+      </div>
+
+      <div class="menu-item" onclick="showSection('login', this)">
+        <i class='bx bx-lock-alt'></i>
+        <span>Login</span>
+      </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- ==============================================
+           SECCIÓN: PORTAFOLIO (DASHBOARD)
+      =============================================== -->
+      <section id="portafolio" class="app-section active-section">
+
+        <div class="hero-header">
+          <h1 class="title">Taller de Aplicaciones <span class="gradient-text">VIII</span></h1>
+          <p class="subtitle">Portafolio Académico Universitario</p>
+        </div>
+
+        <!-- WIDGETS DEL DASHBOARD -->
+        <div class="dashboard-grid">
+          <div class="widget">
+            <div class="widget-icon" style="background: rgba(0, 240, 255, 0.1); color: var(--accent-cyan);">
+              <i class='bx bx-trending-up'></i>
+            </div>
+            <div class="widget-info">
+              <h3>Progreso</h3>
+              <div class="progress-bar-container">
+                <div class="progress-bar" id="progress" style="width: 25%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget">
+            <div class="widget-icon" style="background: rgba(189, 0, 255, 0.1); color: var(--accent-purple);">
+              <i class='bx bx-calendar-check'></i>
+            </div>
+            <div class="widget-info">
+              <h3>Semanas completadas</h3>
+              <p class="widget-value" id="count">4 / 16</p>
+            </div>
+          </div>
+
+          <div class="widget">
+            <div class="widget-icon" style="background: rgba(34, 197, 94, 0.1); color: #22c55e;">
+              <i class='bx bx-check-circle'></i>
+            </div>
+            <div class="widget-info">
+              <h3>Estado</h3>
+              <p class="widget-value text-green" id="status">En Curso</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABS (Unidades) -->
+        <div class="tabs-container">
+          <div class="tab active" onclick="showUnit(1, this)">Unidad 01</div>
+          <div class="tab" onclick="showUnit(2, this)">Unidad 02</div>
+          <div class="tab" onclick="showUnit(3, this)">Unidad 03</div>
+          <div class="tab" onclick="showUnit(4, this)">Unidad 04</div>
+        </div>
+
+        <!-- GRID DE SEMANAS -->
+        <div class="weeks-grid" id="weeks">
+          <!-- ==============================================
+               UNIDAD 1 (Primeras 4 semanas)
+          =============================================== -->
+          <div class="week-card unit-1">
+            <div class="week-number">S01</div>
+            <h4>Introducción al Taller</h4>
+            <p>Análisis de requerimientos y conceptos de negocio.</p>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 1')">Ver Contenido</button>
+          </div>
+          <div class="week-card unit-1">
+            <div class="week-number">S02</div>
+            <h4>Diseño de la Arquitectura</h4>
+            <p>Definición de patrones y tecnologías.</p>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 2')">Ver Contenido</button>
+          </div>
+          <div class="week-card unit-1">
+            <div class="week-number">S03</div>
+            <h4>Modelado de Base de Datos</h4>
+            <p>Diseño conceptual, lógico y físico.</p>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 3')">Ver Contenido</button>
+          </div>
+          <div class="week-card unit-1">
+            <div class="week-number">S04</div>
+            <h4>Configuración del Entorno</h4>
+            <p>Setup de herramientas como Git y frameworks.</p>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 4')">Ver Contenido</button>
+          </div>
+
+          <!-- ==============================================
+               UNIDAD 2 (Restante)
+          =============================================== -->
+          <div class="week-card unit-2" style="display: none;">
+            <div class="week-number">S05</div>
+            <h4>Desarrollo Backend</h4>
+            <p>Creación de la API y controladores.</p>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 5')">Ver Contenido</button>
+          </div>
+          <div class="week-card unit-2" style="display: none;">
+            <div class="week-number">S06</div>
+            <h4>Desarrollo Frontend</h4>
+            <p>Diseño de interfaces e integración UI.</p>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 6')">Ver Contenido</button>
+          </div>
+          <div class="week-card unit-2" style="display: none;">
+            <div class="week-number">S07</div>
+            <h4>Pruebas (Testing)</h4>
+            <p>Validación de calidad y corrección de bugs.</p>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 7')">Ver Contenido</button>
+          </div>
+          <div class="week-card unit-2" style="display: none;">
+            <div class="week-number">S08</div>
+            <h4>Despliegue y Sustentación</h4>
+            <p>Pase a producción y entrega final.</p>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 8')">Ver Contenido</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECCIÓN: GIT
+      =============================================== -->
+      <section id="git" class="app-section">
+        <h2 class="section-title">Control de Versiones: <span class="gradient-text">Git</span></h2>
+        <div class="about-card-premium">
+          <div class="about-content">
+            <h3>¿Qué es Git?</h3>
+            <p class="role">Sistema de Control de Versiones Distribuido</p>
+            <div class="bio-text">
+              <p>Git es una herramienta fundamental para el desarrollo de software colaborativo. Permite llevar un registro de todos los cambios realizados en el código fuente de un proyecto a lo largo del tiempo.</p>
+              <br>
+              <p><strong>Comandos básicos que utilizo:</strong></p>
+              <ul style="list-style-type: none; margin-top: 10px; color: var(--text-muted);">
+                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git init</code> - Inicializa un nuevo repositorio.</li>
+                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git add .</code> - Prepara los archivos para guardar.</li>
+                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git commit -m</code> - Guarda un punto de restauración.</li>
+                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git status</code> - Muestra el estado de los archivos.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECCIÓN: GITHUB
+      =============================================== -->
+      <section id="github" class="app-section">
+        <h2 class="section-title">Plataforma: <span class="gradient-text">GitHub</span></h2>
+        <div class="about-card-premium">
+          <div class="about-content">
+            <h3>¿Qué es GitHub?</h3>
+            <p class="role">Plataforma en la Nube para Código</p>
+            <div class="bio-text">
+              <p>GitHub es un servicio que permite alojar proyectos usando Git. Es como una red social para programadores, facilitando el trabajo en equipo desde cualquier parte del mundo.</p>
+              <br>
+              <p><strong>Ventajas de utilizarlo en el Taller:</strong></p>
+              <ul style="list-style-type: none; margin-top: 10px; color: var(--text-muted);">
+                <li><i class='bx bxs-cloud-upload' style="color:var(--accent-purple)"></i> Respaldos automáticos en la nube (git push).</li>
+                <li><i class='bx bx-git-merge' style="color:var(--accent-purple)"></i> Gestión de ramas y colaboración sin pisar código.</li>
+                <li><i class='bx bxs-folder-open' style="color:var(--accent-purple)"></i> Portafolio demostrable para futuros trabajos.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECCIÓN: PROYECTOS
+      =============================================== -->
+      <section id="projects" class="app-section">
+        <h2 class="section-title">Mis <span class="gradient-text">Proyectos</span></h2>
+        
+        <div class="dashboard-grid">
+          <!-- Proyecto 1 -->
+          <div class="widget" style="flex-direction: column; align-items: flex-start; gap: 10px;">
+            <div class="widget-icon" style="background: rgba(0, 240, 255, 0.1); color: var(--accent-cyan); width: 45px; height: 45px; font-size: 1.5rem; border-radius: 10px;">
+              <i class='bx bx-code-block'></i>
+            </div>
+            <h3 style="font-size: 1.2rem; margin-top: 5px;">Sistema Académico Web</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Plataforma con dashboard, login y portafolio dinámico usando diseño Premium y Glassmorphism.</p>
+            <button class="btn btn-secondary btn-sm" style="margin-top: 10px;"><i class='bx bxl-github'></i> Repositorio</button>
+          </div>
+          
+          <!-- Proyecto 2 -->
+          <div class="widget" style="flex-direction: column; align-items: flex-start; gap: 10px;">
+            <div class="widget-icon" style="background: rgba(189, 0, 255, 0.1); color: var(--accent-purple); width: 45px; height: 45px; font-size: 1.5rem; border-radius: 10px;">
+              <i class='bx bx-data'></i>
+            </div>
+            <h3 style="font-size: 1.2rem; margin-top: 5px;">Base de Datos Empresa</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Modelado, normalización y scripts SQL para un sistema de control de ventas y recursos humanos.</p>
+            <button class="btn btn-secondary btn-sm" style="margin-top: 10px;"><i class='bx bxl-github'></i> Repositorio</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECCIÓN: ACERCA DE MÍ
+      =============================================== -->
+      <section id="about" class="app-section">
+        <h2 class="section-title">Acerca de <span class="gradient-text">mí</span></h2>
+
+        <div class="about-card-premium">
+          <div class="about-img-container">
+            <!-- Espacio para tu foto -->
+            <div class="img-placeholder"><i class='bx bx-user'></i></div>
+          </div>
+
+          <div class="about-content">
+            <h3>Bautista Huaman Juan Arturo</h3>
+            <p class="role">Estudiante de Ingeniería de Sistemas y Computación</p>
+
+            <div class="bio-text">
+              <p>Con una fuerte motivación por el aprendizaje continuo y el desarrollo de soluciones tecnológicas que
+                aporten valor en la vida real.</p>
+              <p>Me apasiona el mundo de la programación y el desarrollo de software, especialmente trabajando con
+                herramientas como Java y plataformas de desarrollo de aplicaciones.</p>
+              <p>Además, disfruto de la música, los deportes, los videojuegos y compartir tiempo con mascotas. Me
+                considero una persona responsable, curiosa y comprometida, siempre en busca de mejorar.</p>
+            </div>
+
+            <div class="hobbies">
+              <span class="tag"><i class='bx bx-code-alt'></i> Desarrollo Software</span>
+              <span class="tag"><i class='bx bxl-java'></i> Java</span>
+              <span class="tag"><i class='bx bx-headphone'></i> Música</span>
+              <span class="tag"><i class='bx bx-football'></i> Deportes</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SECCIÓN: LOGIN
+      =============================================== -->
+      <section id="login" class="app-section">
+        <div class="login-container">
+          <div class="login-box-premium">
+            <div class="login-header">
+              <i class='bx bx-lock-alt' style="font-size: 3rem; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+              <h2>Acceso <span class="gradient-text">Seguro</span></h2>
+              <p>Ingresa tus credenciales para administrar el portafolio.</p>
+            </div>
+
+            <form class="login-form" onsubmit="event.preventDefault(); alert('Login simulado exitoso!');">
+              <div class="input-container">
+                <i class='bx bx-user'></i>
+                <input type="text" id="user" placeholder="Usuario" required>
+              </div>
+
+              <div class="input-container">
+                <i class='bx bx-key'></i>
+                <input type="password" id="pass" placeholder="Contraseña" required>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                Ingresar al Sistema <i class='bx bx-right-arrow-alt'></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL DE CONTENIDO DE SEMANA -->
+  <div class="modal" id="modal">
+    <div class="modal-content-premium">
+      <div class="modal-header">
+        <h2 id="modalTitle">Semana X</h2>
+        <span class="close-modal" onclick="closeModal()"><i class='bx bx-x'></i></span>
+      </div>
+      <div class="modal-body">
+        <p>Contenido detallado de la semana. Aquí podrás ver los apuntes, laboratorios y tareas realizadas durante esta
+          sesión académica.</p>
+
+        <div class="mockup-code">
+          <code>SELECT * FROM Estudiantes WHERE Nota > 14;</code>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+        <button class="btn btn-primary"><i class='bx bxl-github'></i> Ver en GitHub</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+
+</html>
