@@ -8,7 +8,7 @@ function showSection(sectionId, element) {
 
   // 2. Mostrar la sección seleccionada
   const targetSection = document.getElementById(sectionId);
-  if(targetSection) {
+  if (targetSection) {
     targetSection.classList.add('active-section');
   }
 
@@ -18,6 +18,19 @@ function showSection(sectionId, element) {
     item.classList.remove('active');
   });
   element.classList.add('active');
+}
+
+// Lógica para desplegar el menú de la barra lateral (Hamburger)
+function toggleSidebarMenu() {
+  const sidebar = document.querySelector('.sidebar');
+  const mainContent = document.querySelector('.main-content');
+  
+  if (window.innerWidth <= 768) {
+    sidebar.classList.toggle('mobile-open');
+  } else {
+    sidebar.classList.toggle('hidden-desktop');
+    mainContent.classList.toggle('expanded-desktop');
+  }
 }
 
 // Lógica para el filtrado de Pestañas (Tabs de Unidades)
@@ -52,7 +65,7 @@ function showUnit(unitNumber, element) {
 document.addEventListener('DOMContentLoaded', () => {
   // Simular click en la primera unidad para inicializar el grid
   const firstTab = document.querySelector('.tab');
-  if(firstTab) {
+  if (firstTab) {
     showUnit(1, firstTab);
   }
 });
@@ -61,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function openModal(title) {
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
-  
+
   modalTitle.innerText = title;
   modal.classList.add('active');
 }
@@ -72,7 +85,7 @@ function closeModal() {
 }
 
 // Cerrar modal al hacer click fuera del contenido
-window.onclick = function(event) {
+window.onclick = function (event) {
   const modal = document.getElementById('modal');
   if (event.target === modal) {
     closeModal();
