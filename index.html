@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema Académico | Premium</title>
+  <title>PORTAFOLIO JB</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,54 +25,58 @@
   <!-- APP CONTENEDOR PRINCIPAL -->
   <div id="app">
 
+    <!-- BOTÓN FLOTANTE (FAB) PARA MENÚ -->
+    <div class="fab-menu" onclick="toggleSidebarMenu()">
+      <i class='bx bx-menu'></i>
+    </div>
+
     <!-- BARRA SUPERIOR (NAVBAR) -->
     <nav class="top-nav">
       <div class="logo">
-        <i class='bx bx-book-bookmark' style="color: var(--accent-cyan); font-size: 1.5rem;"></i>
+        <img src="img/LogoUpla.png" alt="Logo"
+          style="height: 50px; width: auto; mix-blend-mode: screen; filter: invert(1) sepia(1) saturate(500%) hue-rotate(130deg) brightness(1.2);">
         <span>Ingeniería de Sistemas</span>
       </div>
 
       <div class="profile-info">
         <span class="user-name">Bautista Huaman Juan Arturo</span>
-        <!-- Imagen de placeholder, luego pones tu foto real -->
-        <div class="profile-img">
-          <i class='bx bx-user'></i>
-        </div>
+        <img src="img/perfil.jpeg" alt="Perfil" class="profile-img"
+          style="object-fit: cover; object-position: center; display: block;">
       </div>
     </nav>
 
     <!-- MENÚ LATERAL (SIDEBAR) -->
     <aside class="sidebar">
-      <h3 class="sidebar-title">Menú</h3>
+      <div id="sidebar-menu-items" style="display: flex; flex-direction: column; gap: 10px; width: 100%;">
+        <div class="menu-item active" onclick="showSection('portafolio', this)">
+          <i class='bx bx-grid-alt'></i>
+          <span>Portafolio</span>
+        </div>
 
-      <div class="menu-item active" onclick="showSection('portafolio', this)">
-        <i class='bx bx-grid-alt'></i>
-        <span>Portafolio</span>
-      </div>
+        <div class="menu-item" onclick="showSection('git', this)">
+          <i class='bx bx-git-branch'></i>
+          <span>Git</span>
+        </div>
 
-      <div class="menu-item" onclick="showSection('git', this)">
-        <i class='bx bx-git-branch'></i>
-        <span>Git</span>
-      </div>
+        <div class="menu-item" onclick="showSection('github', this)">
+          <i class='bx bxl-github'></i>
+          <span>GitHub</span>
+        </div>
 
-      <div class="menu-item" onclick="showSection('github', this)">
-        <i class='bx bxl-github'></i>
-        <span>GitHub</span>
-      </div>
+        <div class="menu-item" onclick="showSection('projects', this)">
+          <i class='bx bx-folder'></i>
+          <span>Proyectos</span>
+        </div>
 
-      <div class="menu-item" onclick="showSection('projects', this)">
-        <i class='bx bx-folder'></i>
-        <span>Proyectos</span>
-      </div>
+        <div class="menu-item" onclick="showSection('about', this)">
+          <i class='bx bx-user-circle'></i>
+          <span>Acerca de mí</span>
+        </div>
 
-      <div class="menu-item" onclick="showSection('about', this)">
-        <i class='bx bx-user-circle'></i>
-        <span>Acerca de mí</span>
-      </div>
-
-      <div class="menu-item" onclick="showSection('login', this)">
-        <i class='bx bx-lock-alt'></i>
-        <span>Login</span>
+        <div class="menu-item" onclick="showSection('login', this)">
+          <i class='bx bx-lock-alt'></i>
+          <span>Login</span>
+        </div>
       </div>
     </aside>
 
@@ -85,7 +89,7 @@
       <section id="portafolio" class="app-section active-section">
 
         <div class="hero-header">
-          <h1 class="title">Taller de Aplicaciones <span class="gradient-text">VIII</span></h1>
+          <h1 class="title">DESARROLLO DE <span class="gradient-text"> APLICACIONES</span></h1>
           <p class="subtitle">Portafolio Académico Universitario</p>
         </div>
 
@@ -139,26 +143,18 @@
           =============================================== -->
           <div class="week-card unit-1">
             <div class="week-number">S01</div>
-            <h4>Introducción al Taller</h4>
-            <p>Análisis de requerimientos y conceptos de negocio.</p>
             <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 1')">Ver Contenido</button>
           </div>
           <div class="week-card unit-1">
             <div class="week-number">S02</div>
-            <h4>Diseño de la Arquitectura</h4>
-            <p>Definición de patrones y tecnologías.</p>
             <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 2')">Ver Contenido</button>
           </div>
           <div class="week-card unit-1">
             <div class="week-number">S03</div>
-            <h4>Modelado de Base de Datos</h4>
-            <p>Diseño conceptual, lógico y físico.</p>
             <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 3')">Ver Contenido</button>
           </div>
           <div class="week-card unit-1">
             <div class="week-number">S04</div>
-            <h4>Configuración del Entorno</h4>
-            <p>Setup de herramientas como Git y frameworks.</p>
             <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 4')">Ver Contenido</button>
           </div>
 
@@ -167,26 +163,18 @@
           =============================================== -->
           <div class="week-card unit-2" style="display: none;">
             <div class="week-number">S05</div>
-            <h4>Desarrollo Backend</h4>
-            <p>Creación de la API y controladores.</p>
             <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 5')">Ver Contenido</button>
           </div>
           <div class="week-card unit-2" style="display: none;">
             <div class="week-number">S06</div>
-            <h4>Desarrollo Frontend</h4>
-            <p>Diseño de interfaces e integración UI.</p>
             <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 6')">Ver Contenido</button>
           </div>
           <div class="week-card unit-2" style="display: none;">
             <div class="week-number">S07</div>
-            <h4>Pruebas (Testing)</h4>
-            <p>Validación de calidad y corrección de bugs.</p>
             <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 7')">Ver Contenido</button>
           </div>
           <div class="week-card unit-2" style="display: none;">
             <div class="week-number">S08</div>
-            <h4>Despliegue y Sustentación</h4>
-            <p>Pase a producción y entrega final.</p>
             <button class="btn btn-secondary btn-sm" onclick="openModal('Semana 8')">Ver Contenido</button>
           </div>
         </div>
@@ -202,14 +190,19 @@
             <h3>¿Qué es Git?</h3>
             <p class="role">Sistema de Control de Versiones Distribuido</p>
             <div class="bio-text">
-              <p>Git es una herramienta fundamental para el desarrollo de software colaborativo. Permite llevar un registro de todos los cambios realizados en el código fuente de un proyecto a lo largo del tiempo.</p>
+              <p>Git es una herramienta fundamental para el desarrollo de software colaborativo. Permite llevar un
+                registro de todos los cambios realizados en el código fuente de un proyecto a lo largo del tiempo.</p>
               <br>
               <p><strong>Comandos básicos que utilizo:</strong></p>
               <ul style="list-style-type: none; margin-top: 10px; color: var(--text-muted);">
-                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git init</code> - Inicializa un nuevo repositorio.</li>
-                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git add .</code> - Prepara los archivos para guardar.</li>
-                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git commit -m</code> - Guarda un punto de restauración.</li>
-                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git status</code> - Muestra el estado de los archivos.</li>
+                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git init</code> - Inicializa
+                  un nuevo repositorio.</li>
+                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git add .</code> - Prepara los
+                  archivos para guardar.</li>
+                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git commit -m</code> - Guarda
+                  un punto de restauración.</li>
+                <li><i class='bx bx-terminal' style="color:var(--accent-cyan)"></i> <code>git status</code> - Muestra el
+                  estado de los archivos.</li>
               </ul>
             </div>
           </div>
@@ -226,13 +219,17 @@
             <h3>¿Qué es GitHub?</h3>
             <p class="role">Plataforma en la Nube para Código</p>
             <div class="bio-text">
-              <p>GitHub es un servicio que permite alojar proyectos usando Git. Es como una red social para programadores, facilitando el trabajo en equipo desde cualquier parte del mundo.</p>
+              <p>GitHub es un servicio que permite alojar proyectos usando Git. Es como una red social para
+                programadores, facilitando el trabajo en equipo desde cualquier parte del mundo.</p>
               <br>
               <p><strong>Ventajas de utilizarlo en el Taller:</strong></p>
               <ul style="list-style-type: none; margin-top: 10px; color: var(--text-muted);">
-                <li><i class='bx bxs-cloud-upload' style="color:var(--accent-purple)"></i> Respaldos automáticos en la nube (git push).</li>
-                <li><i class='bx bx-git-merge' style="color:var(--accent-purple)"></i> Gestión de ramas y colaboración sin pisar código.</li>
-                <li><i class='bx bxs-folder-open' style="color:var(--accent-purple)"></i> Portafolio demostrable para futuros trabajos.</li>
+                <li><i class='bx bxs-cloud-upload' style="color:var(--accent-purple)"></i> Respaldos automáticos en la
+                  nube (git push).</li>
+                <li><i class='bx bx-git-merge' style="color:var(--accent-purple)"></i> Gestión de ramas y colaboración
+                  sin pisar código.</li>
+                <li><i class='bx bxs-folder-open' style="color:var(--accent-purple)"></i> Portafolio demostrable para
+                  futuros trabajos.</li>
               </ul>
             </div>
           </div>
@@ -244,26 +241,30 @@
       =============================================== -->
       <section id="projects" class="app-section">
         <h2 class="section-title">Mis <span class="gradient-text">Proyectos</span></h2>
-        
+
         <div class="dashboard-grid">
           <!-- Proyecto 1 -->
           <div class="widget" style="flex-direction: column; align-items: flex-start; gap: 10px;">
-            <div class="widget-icon" style="background: rgba(0, 240, 255, 0.1); color: var(--accent-cyan); width: 45px; height: 45px; font-size: 1.5rem; border-radius: 10px;">
+            <div class="widget-icon"
+              style="background: rgba(0, 240, 255, 0.1); color: var(--accent-cyan); width: 45px; height: 45px; font-size: 1.5rem; border-radius: 10px;">
               <i class='bx bx-code-block'></i>
             </div>
-            <h3 style="font-size: 1.2rem; margin-top: 5px;">Sistema Académico Web</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Plataforma con dashboard, login y portafolio dinámico usando diseño Premium y Glassmorphism.</p>
-            <button class="btn btn-secondary btn-sm" style="margin-top: 10px;"><i class='bx bxl-github'></i> Repositorio</button>
+            <h3 style="font-size: 1.2rem; margin-top: 5px;"></h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;"></p>
+            <button class="btn btn-secondary btn-sm" style="margin-top: 10px;"><i class='bx bxl-github'></i>
+              Repositorio</button>
           </div>
-          
+
           <!-- Proyecto 2 -->
           <div class="widget" style="flex-direction: column; align-items: flex-start; gap: 10px;">
-            <div class="widget-icon" style="background: rgba(189, 0, 255, 0.1); color: var(--accent-purple); width: 45px; height: 45px; font-size: 1.5rem; border-radius: 10px;">
+            <div class="widget-icon"
+              style="background: rgba(189, 0, 255, 0.1); color: var(--accent-purple); width: 45px; height: 45px; font-size: 1.5rem; border-radius: 10px;">
               <i class='bx bx-data'></i>
             </div>
-            <h3 style="font-size: 1.2rem; margin-top: 5px;">Base de Datos Empresa</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Modelado, normalización y scripts SQL para un sistema de control de ventas y recursos humanos.</p>
-            <button class="btn btn-secondary btn-sm" style="margin-top: 10px;"><i class='bx bxl-github'></i> Repositorio</button>
+            <h3 style="font-size: 1.2rem; margin-top: 5px;"></h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;"></p>
+            <button class="btn btn-secondary btn-sm" style="margin-top: 10px;"><i class='bx bxl-github'></i>
+              Repositorio</button>
           </div>
         </div>
       </section>
@@ -275,9 +276,9 @@
         <h2 class="section-title">Acerca de <span class="gradient-text">mí</span></h2>
 
         <div class="about-card-premium">
-          <div class="about-img-container">
-            <!-- Espacio para tu foto -->
-            <div class="img-placeholder"><i class='bx bx-user'></i></div>
+          <div class="about-img-container" style="display: flex; align-items: center; justify-content: center;">
+            <img src="img/perfil.jpeg" alt="Perfil" class="img-placeholder"
+              style="object-fit: cover; object-position: center; display: block; margin: 0;">
           </div>
 
           <div class="about-content">
